@@ -1,0 +1,564 @@
+/* ==========================================================================
+   Variáveis CSS (Design Tokens)
+   ========================================================================== */
+:root {
+    --purple: #391A65;
+    --purple-light: #6b3bad;
+    --pink: #CF96D5;
+    --white: #FFFFFF;
+    --gold: #C9A227;
+    --gold-light: #dfb941;
+    --gray-100: #120A20;
+    --gray-300: #1e1133;
+    --gray-500: #ADB5BD;
+    --gray-800: #e0e0e0;
+    --card-bg: #1a0f2e;
+    
+    --font-title: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--gray-800);
+    background-color: #0b0715;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+.title {
+    font-family: var(--font-title);
+    font-size: 4.5rem;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--pink);
+    text-transform: uppercase;
+}
+
+.section-title {
+    font-family: var(--font-body);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--pink);
+    text-align: center;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   Header / Hero
+   ========================================================================== */
+.hero {
+    background: linear-gradient(135deg, var(--purple) 0%, #683091 100%);
+    position: relative;
+    padding-top: 8rem;
+    padding-bottom: 3rem;
+    text-align: center;
+}
+
+/* Transição animada na base do header */
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--pink), var(--gold), var(--pink), transparent);
+    background-size: 200% 100%;
+    animation: gradientGlow 4s linear infinite;
+    box-shadow: 0 0 15px rgba(207, 150, 213, 0.5); /* Glow rosa */
+}
+
+@keyframes gradientGlow {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    position: relative;
+    z-index: 2;
+    padding: 0 1rem;
+}
+
+.ticket-wrapper {
+    margin-top: 2rem;
+    filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.2));
+}
+
+.wave-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.wave-divider svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 60px;
+}
+
+/* ==========================================================================
+   Seção: Prêmios
+   ========================================================================== */
+.section-premios {
+    padding: 4rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.premios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+.premio-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.premio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(57, 26, 101, 0.15);
+}
+
+.premio-img-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    position: relative;
+    background-color: #fff;
+    padding: 1.5rem;
+}
+
+.premio-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+.premio-card:hover .premio-img {
+    transform: scale(1.05);
+}
+
+.premio-content {
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.premio-nome {
+    font-size: 1.25rem;
+    color: var(--purple);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.premio-desc {
+    font-size: 0.9rem;
+    color: var(--gray-500);
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.badge-novo {
+    background-color: var(--purple);
+    color: var(--white);
+}
+
+.badge-otimo {
+    background-color: var(--pink);
+    color: var(--white);
+}
+
+.badge-bom {
+    background-color: var(--gray-300);
+    color: var(--purple);
+}
+
+.gold-brace {
+    font-family: var(--font-title);
+    font-size: 3rem;
+    color: var(--gold);
+    line-height: 1;
+    margin-top: 1rem;
+    opacity: 0.7;
+    transform: rotate(90deg);
+}
+
+/* ==========================================================================
+   Seção: Rifa (Grid de Números)
+   ========================================================================== */
+.section-rifa {
+    padding: 4rem 1rem;
+    background-color: var(--gray-100);
+}
+
+#rifa-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contador {
+    text-align: center;
+    font-weight: 600;
+    color: var(--pink);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.numeros-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 8px;
+    margin-bottom: 2rem;
+}
+
+.numero-item {
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Status: Disponível */
+.numero-item.disponivel {
+    background-color: var(--card-bg);
+    color: var(--pink);
+    border: 1px solid var(--purple-light);
+}
+
+.numero-item.disponivel:hover {
+    background-color: var(--purple-light);
+    color: var(--white);
+    transform: scale(1.05);
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(207, 150, 213, 0.2);
+}
+
+/* Removido Status Reservado */
+
+/* Status: Vendido */
+.numero-item.vendido {
+    background-color: #0b0715;
+    color: #444;
+    cursor: not-allowed;
+    text-decoration: line-through;
+    border: 1px solid #222;
+}
+
+/* Messages */
+.message-box {
+    text-align: center;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 0 auto;
+    color: var(--pink);
+    font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.message-box.error {
+    color: #ff6b6b;
+    border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+.btn-refresh {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--purple);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--font-body);
+}
+
+/* ==========================================================================
+   Accordion
+   ========================================================================== */
+.accordion {
+    margin-top: 2rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 1.25rem;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--pink);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.accordion-header:hover {
+    background-color: rgba(255,255,255,0.05);
+}
+
+.icon-arrow {
+    transition: transform 0.3s ease;
+}
+
+.accordion-header.active .icon-arrow {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    padding: 0 1.25rem;
+}
+
+.accordion-content.open {
+    padding-bottom: 1.25rem;
+}
+
+.indisponiveis-grid {
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Seção: Contato
+   ========================================================================== */
+.section-contato {
+    padding: 4rem 1rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contato-desc {
+    margin-bottom: 2rem;
+    color: var(--gray-500);
+    font-size: 1.1rem;
+}
+
+.contatos-flex {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, var(--purple-light) 0%, var(--purple) 100%);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(107, 59, 173, 0.3);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(107, 59, 173, 0.5);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+footer {
+    background: linear-gradient(135deg, #683091 0%, var(--purple) 100%);
+    position: relative;
+    padding-top: 60px;
+}
+
+.footer-wave {
+    top: -1px;
+    bottom: auto;
+    transform: rotate(180deg);
+}
+
+.footer-content {
+    padding: 2rem 1rem 3rem;
+    text-align: center;
+    color: var(--white);
+    font-size: 1.1rem;
+}
+
+.destaque {
+    color: var(--gold);
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   Floating Nav
+   ========================================================================== */
+.floating-nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: max-content;
+}
+
+.nav-container {
+    display: flex;
+    gap: 0.5rem;
+    background: rgba(26, 15, 46, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-link {
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--pink);
+}
+
+.nav-link.active {
+    background: linear-gradient(135deg, var(--purple-light) 0%, var(--purple) 100%);
+    box-shadow: 0 2px 10px rgba(207, 150, 213, 0.3);
+    color: var(--white);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   Responsividade (Mobile)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .title {
+        font-size: 3.2rem;
+    }
+    
+    .numeros-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 6px;
+    }
+    
+    .numero-item {
+        font-size: 1rem;
+        border-radius: 6px;
+    }
+    
+    .wave-divider svg {
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .numeros-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 4px;
+    }
+    
+    .numero-item {
+        font-size: 0.9rem;
+        border-radius: 4px;
+    }
+    
+    .contatos-flex {
+        flex-direction: column;
+    }
+}
