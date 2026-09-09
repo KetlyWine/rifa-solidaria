@@ -1,7 +1,7 @@
 import kitEgeo from '../assets/kit-egeo.webp';
-import percy1 from '../assets/Percy-1.png';
-import percy2 from '../assets/Percy-2.png';
-import percy3 from '../assets/Percy-3.png';
+import percy1 from '../assets/Percy-1.webp';
+import percy2 from '../assets/Percy-2.webp';
+import percy3 from '../assets/Percy-3.webp';
 
 export default function Premios() {
   const listaPremios = [
@@ -46,7 +46,7 @@ export default function Premios() {
         {listaPremios.map((premio) => (
           <div key={premio.id} className="premio-card">
             <div className="premio-img-wrapper">
-              <img src={premio.img} alt={premio.nome} className="premio-img" />
+              <img src={premio.img} alt={premio.nome} className="premio-img" loading="lazy" decoding="async" />
             </div>
             <div className="premio-content">
               <h3 className="premio-nome">{premio.nome}</h3>
