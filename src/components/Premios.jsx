@@ -1,3 +1,8 @@
+import kitEgeo from '../assets/kit-egeo.webp';
+import percy1 from '../assets/Percy-1.png';
+import percy2 from '../assets/Percy-2.png';
+import percy3 from '../assets/Percy-3.png';
+
 export default function Premios() {
   const listaPremios = [
     {
@@ -6,7 +11,7 @@ export default function Premios() {
       desc: "Desodorante Colônia, Body Spray, Hidratante para Mãos",
       estado: "Novo",
       badgeClass: "badge-novo",
-      img: "./src/assets/kit-egeo.webp"
+      img: kitEgeo
     },
     {
       id: 2,
@@ -14,7 +19,7 @@ export default function Premios() {
       desc: "Volume 1 da saga Percy Jackson e os Olimpianos",
       estado: "Ótimo estado",
       badgeClass: "badge-otimo",
-      img: "/src/assets/Percy-1.png"
+      img: percy1
     },
     {
       id: 3,
@@ -22,7 +27,7 @@ export default function Premios() {
       desc: "Volume 2 da saga Percy Jackson e os Olimpianos",
       estado: "Ótimo estado",
       badgeClass: "badge-otimo",
-      img: "/src/assets/Percy-2.png"
+      img: percy2
     },
     {
       id: 4,
@@ -30,7 +35,7 @@ export default function Premios() {
       desc: "Volume 3 da saga Percy Jackson e os Olimpianos",
       estado: "Ótimo estado",
       badgeClass: "badge-otimo",
-      img: "/src/assets/Percy-3.png"
+      img: percy3
     }
   ];
 
