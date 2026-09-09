@@ -6,7 +6,7 @@ export default function Premios() {
       desc: "Desodorante Colônia, Body Spray, Hidratante para Mãos",
       estado: "Novo",
       badgeClass: "badge-novo",
-      img: "/src/assets/kit-egeo.webp"
+      img: "./src/assets/kit-egeo.webp"
     },
     {
       id: 2,
