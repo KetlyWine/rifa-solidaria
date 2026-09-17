@@ -256,6 +256,110 @@ body {
 }
 
 /* ==========================================================================
+   Carrossel Percy Jackson
+   ========================================================================== */
+.premio-img-wrapper--carousel {
+    padding: 0;
+    position: relative;
+}
+
+.percy-carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.percy-slides {
+    width: 100%;
+    height: calc(100% - 3rem);
+    position: relative;
+    overflow: hidden;
+}
+
+.percy-slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.percy-slide-active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.percy-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(57, 26, 101, 0.85);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 5;
+    transition: background 0.2s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.percy-btn:hover {
+    background: var(--purple-light);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.percy-btn-prev { left: 0.4rem; }
+.percy-btn-next { right: 0.4rem; }
+
+.percy-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--purple);
+    text-align: center;
+    padding: 0.3rem 0.5rem 0;
+    height: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+.percy-dots {
+    display: flex;
+    gap: 0.4rem;
+    padding: 0.4rem 0 0.6rem;
+}
+
+.percy-dot {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    border: none;
+    background: var(--pink);
+    opacity: 0.3;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    padding: 0;
+}
+
+.percy-dot-active {
+    opacity: 1;
+    transform: scale(1.3);
+    background: var(--purple);
+}
+
+/* ==========================================================================
    Seção: Rifa (Grid de Números)
    ========================================================================== */
 .section-rifa {

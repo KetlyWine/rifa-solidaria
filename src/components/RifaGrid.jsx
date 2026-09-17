@@ -150,6 +150,12 @@ export default function RifaGrid() {
             {disponiveis.length} números disponíveis de {totalNumeros}
           </p>
 
+          <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
+            <button onClick={() => fetchCSVData(false)} className="btn-refresh">
+              Atualizar números
+            </button>
+          </div>
+
           <div className="numeros-grid">
             {disponiveis.map(item => (
               <div
@@ -191,11 +197,6 @@ export default function RifaGrid() {
             </div>
           )}
 
-          <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
-            <button onClick={() => fetchCSVData(false)} className="btn-refresh">
-              Atualizar números
-            </button>
-          </div>
         </div>
       )}
     </section>

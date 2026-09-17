@@ -1,4 +1,4 @@
-const DATA_SORTEIO = "A definir";
+const DATA_SORTEIO = "07/11";
 
 export default function Footer() {
   return (
